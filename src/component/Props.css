@@ -1,0 +1,153 @@
+body{
+    font-size: 14px;
+}
+h1,h2,h3,h4,h5,h6{
+    margin: 0px; 
+    padding: 0px; 
+    font-weight: normal;
+}
+.fixed{
+    position: fixed;
+}
+.bl{
+    display: block;
+}
+.ibl{
+    display: inline-block
+}
+.rel{
+    position: relative;
+}
+.abs{
+    position: absolute !important;
+}
+.overflowhidden{
+    overflow: hidden;
+}
+.stick{
+    position: sticky;
+}
+input,button,select,textarea{outline: none;}
+.flex{
+    display: flex;
+}
+.flex-col{
+    flex-direction: column;
+}
+.aic{
+    align-items: center;
+}
+.font{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+}
+.font1{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+.fontb{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+}
+.b{font-weight: bold;}
+.s12{font-size: 12px;}
+.s13{font-size: 13px;}
+.s14{font-size: 14px;}
+.s15{font-size: 15px;}
+.s16{font-size: 16px;}
+.s18{font-size: 18px;}
+.s20{font-size: 20px;}
+.s22{font-size: 22px;}
+.s24{font-size: 24px;}
+.s30{font-size: 30px;}
+
+.noul{
+    text-decoration: none;
+}
+.noulh:hover{
+    text-decoration: underline;
+}
+.cfff{
+    color: white;
+}
+button:focus{
+    cursor: pointer;
+    outline: none !important;
+}
+a:hover{
+    cursor: pointer;
+}
+.maxcontent{
+    width: max-content;
+}
+.wrapcontent{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 32px;
+    margin: 0 8px;
+    white-space: nowrap
+}
+
+@media (max-width: 576px) {
+    .header {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .actions{
+  
+        margin-left: 10px;
+   }
+}
+@media (max-width:750px) { 
+    .hide2{
+        display:none;
+    }
+    .header {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+@media (max-width: 991px) { 
+    .header {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    .actions{
+  
+        margin-left: 10px;
+   }
+}
+.icon{
+    background: lightgray;
+    padding: 7px 11px;
+    cursor: pointer;
+
+}
+
+.center{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+.start{
+    display:flex;
+    justify-content:start;
+    align-items:start;
+}
+.end{
+    display:flex;
+    justify-content:end;
+    align-items:end;
+}
+.pointer{
+    cursor: pointer
+}
+.centerr {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+  }
+  .space_between{
+    justify-content: space-between
+  }
