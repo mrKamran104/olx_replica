@@ -1,5 +1,4 @@
 import firebase from '../../config/firebase'
-// import firebase from 'firebase'
 
 const facebook_login = () => {
     return (dispatch) => {
@@ -31,52 +30,47 @@ const facebook_login = () => {
 const firebase_logout = () => {
     return (dispatch) => {
         firebase.auth().signOut()
-        .then(function () {
-            // Sign-out successful.
-            dispatch({ type: "log_out"})
-        }).catch(function (error) {
-            // An error happened.
-        });
+            .then(function () {
+                // Sign-out successful.
+                dispatch({ type: "log_out" })
+            }).catch(function (error) {
+                // An error happened.
+            });
 
     }
 }
 
-let email_signup = (data)=>{
+const email_signup = (data) => {
+    // return (dispatch) => {
     firebase.auth().createUserWithEmailAndPassword(data.email, data.pass)
-    .then(result=>{
-        console.log(result)
-    })
-    .catch(function(error) {
-       // Handle Errors here.
-       var errorCode = error.code;
-       var errorMessage = error.message;
-       alert(errorMessage)
-       // ...
-     });
-
+        .then(result => {
+            // dispatch({ type: "email_signup" })
+        })
+        .catch(function (error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            alert(errorMessage)
+            // ...
+        });
+    // }
 }
 
-let email_login = ()=>{
-   var email = document.getElementById("login_email")
-   var password = document.getElementById("login_pswrd") 
-       firebase.auth().signInWithEmailAndPassword(email.value, password.value)
-       .then(result=>{
-           alert("user login successfuly")
-           window.open("https://www.google.com" ,"_self" )
-       })
-       .catch(function(error) {
-       // Handle Errors here.
-       var errorCode = error.code;
-       var errorMessage = error.message;
-       alert(errorMessage)
+const email_login = (data) => {
 
-       // ...
-     });
+    firebase.auth().signInWithEmailAndPassword(data.email, data.pass)
+        .then(function (result) {
+            alert("loginnnnnn")
+            return (dispatch) => { dispatch({ type: "email_login", data: data.email })}
+        })
+        .catch(function (error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            alert(errorMessage)
+            // ...
+        });
 }
-
-
-
-
 
 const set_data = (data) => {
     return (dispatch) => {
@@ -88,5 +82,6 @@ export {
     set_data,
     facebook_login,
     firebase_logout,
-    email_signup
+    email_signup,
+    email_login
 }

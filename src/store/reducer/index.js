@@ -8,20 +8,25 @@ export default (state = INITIAL_STATE, action) => {
 
     // console.log("user_reducer", action)
 
-    if (action.type == "log_in") {
-        return ({
-            ...state,
-            user_name: action.data.displayName, islogin: true
-        })
-
+    switch (action.type) {
+        case "email_login":
+            console.log("dddd", state)
+            // return ({
+            //     ...state,
+            //     user_name: action.data, islogin: true
+            // })
+            break;
+        case "log_in":
+            return ({
+                ...state,
+                user_name: action.data.displayName, islogin: true
+            })
+        case "log_out":
+            return ({
+                ...state,
+                user_name: '', islogin: false
+            })
+        default:
+            return state;
     }
-    else if (action.type == "log_out") {
-        return ({
-            ...state,
-            user_name: '', islogin: false
-        })
-
-    }
-    return state;
-
 }

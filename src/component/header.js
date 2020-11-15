@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import logo from '../images/olxlogo.png'
 import Login from './login';
 import { connect } from 'react-redux'
-import { facebook_login } from '../store/action'
-import { firebase_logout } from '../store/action'
-import { email_signup } from '../store/action'
+import { facebook_login, firebase_logout, email_signup, email_login } from '../store/action'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import Mobile_Phones from './NavComponents/mobile_phones'
 import Cars from './NavComponents/cars'
@@ -27,7 +25,6 @@ class Header extends Component {
                 email: '',
                 pass: ''
             }
-
         }
     }
 
@@ -41,10 +38,9 @@ class Header extends Component {
 
     handleModalShowHide = () => {
         this.setState({ login_show: false })
-        console.log("handle")
     }
     saveChanges = (d) => {
-        email_signup(d)
+        email_login(d)
         console.log("changes saved", d.email, d.pass)
         this.setState({
             login_show: false,
@@ -65,8 +61,8 @@ class Header extends Component {
             { ID: 5, label: "TV-Video-Audio", route: "tv-video-audio" },
             { ID: 6, label: "Tablets", route: "tablets" },
             { ID: 7, label: "Land & Plots", route: "land-plots" },
-
         ]
+
         console.log("runn", this.props)
         return (
             <Router>
@@ -138,7 +134,8 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProp = (dispatch) => ({
     facebook_login: () => dispatch(facebook_login()),
     firebase_logout: () => dispatch(firebase_logout()),
-    email_signup: (data) => dispatch(email_signup(data))
+    email_signup: (data) => dispatch(email_signup(data)),
+    email_login: (data) => dispatch(email_login(data))
 })
 
 
